@@ -1,6 +1,17 @@
+@import url('https://fonts.googleapis.com/css?family=Titan One');
+
 body {
-    font: 14px "Century Gothic", Futura, sans-serif;
-    margin: 20px;
+    background-color: #FBEEC1;
+    font: 25px "Century Gothic", Futura, sans-serif;
+    margin: 35px;
+    display: flex;
+    justify-content: center;
+    margin-top: 10%;
+    background-image: url(https://i.pinimg.com/736x/e8/d8/00/e8d80087e3cd48eeb60a6a294f25b963.jpg);
+    background-size: 43%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
   }
   
   ol, ul {
@@ -18,18 +29,19 @@ body {
   }
   
   .square {
+    font-family: 'Crafty Girls', cursive;
     background: #fff;
     border: 1px solid #999;
     float: left;
-    font-size: 24px;
+    font-size: 64px;
     font-weight: bold;
     line-height: 34px;
-    height: 34px;
+    height: 100px;
     margin-right: -1px;
     margin-top: -1px;
     padding: 0;
     text-align: center;
-    width: 34px;
+    width: 100px;
   }
   
   .square:focus {
@@ -46,6 +58,17 @@ body {
   }
   
   .game-info {
-    margin-left: 20px;
+    margin-left: 25px;
   }
-  
+  #title{
+    background: -webkit-linear-gradient(#9c9292, #80776d, #5c3070);
+    margin-left: -5%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: 'Titan One',Arial;
+    font-size: 4rem;
+}
+#reset{
+    margin-left: 20%;
+    
+}

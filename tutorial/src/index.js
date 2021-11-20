@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css'
+import Swal from 'sweetalert2'
 function Square(props) {
   return (
-    <button className="square" onClick={props.onClick}>
+    <button className="btn btn-outline-primary border-1 square" onClick={props.onClick}>
       {props.value}
     </button>
   );
@@ -55,7 +56,17 @@ class Game extends React.Component {
       xIsNext: true
     };
   }
-
+  resetGame = ()=>{
+    this.setState({
+        history: [
+          {
+            squares: Array(9).fill(null)
+          }
+        ],
+        stepNumber: 0,
+        xIsNext: true
+  })
+  }
   handleClick(i) {
     const history = this.state.history.slice(0, this.state.stepNumber + 1);
     const current = history[history.length - 1];
@@ -93,19 +104,25 @@ class Game extends React.Component {
         'Go to game start';
       return (
         <li key={move}>
-          <button onClick={() => this.jumpTo(move)}>{desc}</button>
+          <button class="btn border-1 btn-outline-primary" onClick={() => this.jumpTo(move)}>{desc}</button>
         </li>
       );
     });
 
     let status;
     if (winner) {
+      niceAlert("Winner: " + winner)
       status = "Winner: " + winner;
     } else {
       status = "Next player: " + (this.state.xIsNext ? "X" : "O");
     }
 
     return (
+      <div>
+        <span id="title">Tic tac toe</span>
+        <br/>
+        <br/>
+        <br/>
       <div className="game">
         <div className="game-board">
           <Board
@@ -117,6 +134,9 @@ class Game extends React.Component {
           <div>{status}</div>
           <ol>{moves}</ol>
         </div>
+      </div>
+      <br/>
+        <button onClick={this.resetGame} className="btn btn-dark btn-lg" id="reset">Reset</button>
       </div>
     );
   }
@@ -145,3 +165,11 @@ function calculateWinner(squares) {
   }
   return null;
 }
+
+const niceAlert  = (textVal) =>{
+  Swal.fire({
+    title: textVal,
+    width: 600,
+    padding: '3em',
+  })
+  }
